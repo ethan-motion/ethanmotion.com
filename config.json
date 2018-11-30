@@ -1,0 +1,8 @@
+{
+  "application_name": "ethan-personal-website",
+  "instance_type": "t2.small",
+  "image_ami": "",
+  "asg_min_hosts": 1,
+  "asg_max_hosts": 2,
+  "asg_desired_hosts": 1
+}
