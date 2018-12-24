@@ -70,7 +70,7 @@ New-ASLaunchConfiguration `
     -LaunchConfigurationName $lcName `
     -KeyName $kpName `
     -IamInstanceProfile ec2-access-s3 `
-    -ImageId ami-05509fd027d9fb791 `
+    -ImageId ami-0080e4c5bc078760e `
     -SecurityGroup $sgID `
     -EbsOptimized 0 `
     -InstanceType $config.instance_type
