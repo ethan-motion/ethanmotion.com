@@ -70,7 +70,7 @@ New-ASLaunchConfiguration `
     -LaunchConfigurationName $lcName `
     -KeyName $kpName `
     -IamInstanceProfile ec2-access-s3 `
-    -ImageId ami-0080e4c5bc078760e `
+    -ImageId $config.image_ami `
     -SecurityGroup $sgID `
     -EbsOptimized 0 `
     -InstanceType $config.instance_type
@@ -84,7 +84,7 @@ New-ASAutoScalingGroup `
     -MinSize $config.asg_min_hosts `
     -MaxSize $config.asg_max_hosts `
     -DesiredCapacity $config.asg_desired_hosts `
-    -AvailabilityZone @("ap-southeast-2a") `
+    -AvailabilityZone @("us-east-1a") `
     -DefaultCooldown 300 `
     -HealthCheckGracePeriod 60 `
     -HealthCheckType EC2 `
@@ -99,7 +99,7 @@ $alb = New-ELB2LoadBalancer `
     -Scheme internet-facing `
     -SecurityGroup @($sgID) `
     -Type application `
-    -Subnet @("subnet-13f18f77","subnet-773c5f01","subnet-1389314a")
+    -Subnet @($config.subnet_1,$config.subnet_2,$config.subnet_3)
 
 
 # Create Target Group
@@ -109,7 +109,7 @@ $tg = New-ELB2TargetGroup `
     -Port 80 `
     -Protocol HTTP `
     -TargetType instance `
-    -VpcId vpc-7a69db1e
+    -VpcId $config.vpc_id
 
 
 # Add listener to ALB
@@ -129,29 +129,3 @@ Write-ASScalingPolicy `
     -TargetTrackingConfiguration_TargetValue 60 `
     -PredefinedMetricSpecification_PredefinedMetricType ASGAverageCPUUtilization 
 
-
-
-
-
-################################################################################################################
-
-# Linux stuff to create website
-
-
-sudo yum update -y
-sudo yum install -y httpd24 php56 php56-mysqlnd
-sudo service httpd start
-sudo chkconfig httpd on
-sudo groupadd www
-sudo usermod -a -G www ec2-user
-
-<LOGIN>
-groups
-	ec2-user wheel www
-
-sudo chown -R root:www /var/www
-sudo chmod 2775 /var/www
-find /var/www -type d -exec sudo chmod 2775 {} +
-find /var/www -type f -exec sudo chmod 0664 {} +
-
-sudo yum install git -y
