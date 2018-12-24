@@ -183,8 +183,8 @@ a:after {
 
 #intro {
 	background: #2f2f2f;
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 40px;
+	padding-bottom: 20px;
 	color: white;
 }
 
@@ -203,8 +203,8 @@ a:after {
 
 #footwrap {
 	background: #2f2f2f;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 30px;
+	padding-bottom: 10px;
 }
 
 #footwrap p {
