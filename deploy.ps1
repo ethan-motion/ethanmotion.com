@@ -48,12 +48,8 @@ grant_inbound_rule -IpProtocol "tcp" -FromPort "80" -ToPort "80"
 # Add inbound HTTPS rule
 grant_inbound_rule -IpProtocol "tcp" -FromPort "443" -ToPort "443"
 
-
 # Add inbound ICMP IPv4 rule
-$ipPermissions.IpProtocol = "ICMP"
-$ipPermissions.FromPort = "-1"
-$ipPermissions.ToPort = "-1"
-
+grant_inbound_rule -IpProtocol "ICMP" -FromPort "-1" -ToPort "-1"
 
 
 # Create Launch Configuration (lc)
