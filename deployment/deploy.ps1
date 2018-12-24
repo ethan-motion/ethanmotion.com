@@ -117,3 +117,5 @@ Write-ASScalingPolicy `
     -TargetTrackingConfiguration_TargetValue 60 `
     -PredefinedMetricSpecification_PredefinedMetricType ASGAverageCPUUtilization 
 
+
+# Need to register the instance to the target group
