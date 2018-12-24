@@ -23,45 +23,37 @@ $tag.Key = "Name"
 $tag.Value = $sgName
 New-EC2Tag -Resource $sgID -Tag $tag
 
+function grant_inbound_rule {
+    Param(
+        [Parameter(Mandatory=$true)][string] $IpProtocol,
+        [Parameter(Mandatory=$true)][string] $FromPort,
+        [Parameter(Mandatory=$true)][string] $ToPort
+    )
+    $cidrBlocks = New-Object 'collections.generic.list[string]'
+    $cidrBlocks.add("0.0.0.0/0")
+    $ipPermissions = New-Object Amazon.EC2.Model.IpPermission
+    $ipPermissions.IpRanges = $cidrBlocks
+    $ipPermissions.IpProtocol = $IpProtocol
+    $ipPermissions.FromPort = $FromPort
+    $ipPermissions.ToPort = $ToPort
+    Grant-EC2SecurityGroupIngress -GroupName $sgName -IpPermissions $ipPermissions
+}
+
 # Add inbound SSH rule
-$cidrBlocks = New-Object 'collections.generic.list[string]'
-$cidrBlocks.add("0.0.0.0/0")
-$ipPermissions = New-Object Amazon.EC2.Model.IpPermission
-$ipPermissions.IpProtocol = "tcp"
-$ipPermissions.FromPort = 22
-$ipPermissions.ToPort = 22
-$ipPermissions.IpRanges = $cidrBlocks
-Grant-EC2SecurityGroupIngress -GroupName $sgName -IpPermissions $ipPermissions
+grant_inbound_rule -IpProtocol "tcp" -FromPort "22" -ToPort "22"
 
 # Add inbound HTTP rule
-$cidrBlocks = New-Object 'collections.generic.list[string]'
-$cidrBlocks.add("0.0.0.0/0")
-$ipPermissions = New-Object Amazon.EC2.Model.IpPermission
-$ipPermissions.IpProtocol = "tcp"
-$ipPermissions.FromPort = 80
-$ipPermissions.ToPort = 80
-$ipPermissions.IpRanges = $cidrBlocks
-Grant-EC2SecurityGroupIngress -GroupName $sgName -IpPermissions $ipPermissions
+grant_inbound_rule -IpProtocol "tcp" -FromPort "80" -ToPort "80" 
 
 # Add inbound HTTPS rule
-$cidrBlocks = New-Object 'collections.generic.list[string]'
-$cidrBlocks.add("0.0.0.0/0")
-$ipPermissions = New-Object Amazon.EC2.Model.IpPermission
-$ipPermissions.IpProtocol = "tcp"
-$ipPermissions.FromPort = 443
-$ipPermissions.ToPort = 443
-$ipPermissions.IpRanges = $cidrBlocks
-Grant-EC2SecurityGroupIngress -GroupName $sgName -IpPermissions $ipPermissions
+grant_inbound_rule -IpProtocol "tcp" -FromPort "443" -ToPort "443"
+
 
 # Add inbound ICMP IPv4 rule
-$cidrBlocks = New-Object 'collections.generic.list[string]'
-$cidrBlocks.add("0.0.0.0/0")
-$ipPermissions = New-Object Amazon.EC2.Model.IpPermission
 $ipPermissions.IpProtocol = "ICMP"
 $ipPermissions.FromPort = "-1"
 $ipPermissions.ToPort = "-1"
-$ipPermissions.IpRanges = $cidrBlocks
-Grant-EC2SecurityGroupIngress -GroupName $sgName -IpPermissions $ipPermissions
+
 
 
 # Create Launch Configuration (lc)
