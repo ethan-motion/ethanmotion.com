@@ -237,7 +237,14 @@ a:after {
 	color: white
 }
 
+/* Show and hide div */
+.showme {
+  display: none;
+}
 
+.showthem:hover .showme {
+  display: block;
+}
 
 /* Global Values */
 
