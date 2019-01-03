@@ -1,4 +1,4 @@
-# What is this
+# What's this?
 This repo is source control for my personal website (http://ethanmotion.com) and the deployment pipeline I've built.
 
 ## Website
