@@ -58,8 +58,8 @@ def lambda_handler(event, context):
                     content_type = content_types[Path(lambda_file_path).suffix.lower()]
                     print("Content Type is " + content_type)
                     s3 = boto3.client('s3')
-                    content = open(lambda_file_path, 'rb')
                     for bucket in buckets:
+                        content = open(lambda_file_path, 'rb')
                         s3.put_object(
                             Bucket=bucket,
                             Body=content,
