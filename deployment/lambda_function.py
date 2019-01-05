@@ -12,10 +12,10 @@ def lambda_handler(event, context):
             print("X-GitHub-Event is 'release'")
             if(event['body']['release']['prerelease'] == False): # Production website
                 print("pre-release is false")
-                bucket_name = 'ethanmotion.com'
+                buckets = ['ethanmotion.com', 'www.ethanmotion.com']
             elif(event['body']['release']['prerelease'] == True): # Dev website
                 print("pre-release is true")
-                bucket_name = 'dev.ethanmotion.com'
+                buckets = ['dev.ethanmotion.com']
         else:
             return "Not a release event. Exiting."
     except Exception as e:
@@ -59,12 +59,13 @@ def lambda_handler(event, context):
                     print("Content Type is " + content_type)
                     s3 = boto3.client('s3')
                     content = open(lambda_file_path, 'rb')
-                    s3.put_object(
-                        Bucket=bucket_name,
-                        Body=content,
-                        Key=s3_path,
-                        ContentType=content_type
-                    )
+                    for bucket in buckets:
+                        s3.put_object(
+                            Bucket=bucket,
+                            Body=content,
+                            Key=s3_path,
+                            ContentType=content_type
+                        )
 
                     count_uploaded_files += 1
                     print("Uploaded: " + s3_path)
