@@ -2,7 +2,7 @@
 This repo is source control for my personal website (http://ethanmotion.com).
 
 ## Architecture
-![architecture](architecture.png)
+![architecture](architecture_diagram.png)
 
 ## Deployment
 Deployment is done locally at the moment, to both my dev environment, and production. Source can be either local, or what's in GitHub master branch.
