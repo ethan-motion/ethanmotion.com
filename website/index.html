@@ -2,24 +2,6 @@
 <html lang="en">
   <head>
     <script src="assets/js/newrelic.js"></script> <!-- New Relic monitoring -->
-    <!-- Get host name from referrer for New Relic -->
-    <script>
-      function getHostName(url) {
-          var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-          if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-          return match[2];
-          }else {
-              return 'None';
-          }
-      }
-    </script>
-      <!-- New Relic Browser monitor -->
-    <script type="text/javascript">
-        if (newrelic != undefined) {
-            newrelic.setCustomAttribute('referrer', document.referrer);
-            newrelic.setCustomAttribute('referrer host', getHostName(document.referrer));
-        }
-    </script>
     <title>Ethan Motion</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
