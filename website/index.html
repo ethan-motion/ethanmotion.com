@@ -1,204 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="assets/js/newrelic.js"></script> <!-- New Relic monitoring -->
-    <title>Ethan Motion</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ethan Motion's personal website">
-    <meta name="author" content="Ethan Motion">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <!-- Image for sharing on Messenger, etc -->
-    <meta property="og:image" content="assets/img/share-img.jpg" />
-    <meta property='og:title' content="Ethan Motion's personal website"/>
-    <meta property='og:description' content="Ethan Motion's personal website"/>
-    <meta property='og:url' content="http://ethanmotion.com" />
+   <head>
+      <script src="assets/js/newrelic.js"></script> <!-- New Relic monitoring -->
+      <title>Ethan Motion</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Ethan Motion's personal website">
+      <meta name="author" content="Ethan Motion">
+      <meta property="og:image" content="assets/img/share-img.jpg" />
+      <meta property='og:title' content="Ethan Motion's personal website"/>
+      <meta property='og:description' content="Ethan Motion's personal website"/>
+      <meta property='og:url' content="http://ethanmotion.com" />
+      <link rel="shortcut icon" href="assets/ico/favicon.png">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+      <script src="https://kit.fontawesome.com/91503c0c4f.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="assets/css/main.css">
+   </head>
+   <body>
+      <!-- Navbar (sit on top) -->
+      <div class="w3-top">
+         <div class="w3-bar" id="myNavbar">
+            <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+            </a>
+            <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+            <a href="#work" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-building"></i> WORK</a>
+            <a href="#education" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-graduation-cap"></i> EDUCATION</a>
+            <a href="#blogs" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-blog"></i> BLOGS</a>
+         </div>
+         <!-- Navbar on small screens -->
+         <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+            <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+            <a href="#work" class="w3-bar-item w3-button" onclick="toggleFunction()">WORK</a>
+            <a href="#education" class="w3-bar-item w3-button" onclick="toggleFunction()">EDUCATION</a>
+            <a href="#blogs" class="w3-bar-item w3-button" onclick="toggleFunction()">BLOGS</a>
+         </div>
+      </div>
+      <!-- First Parallax Image with Logo Text -->
+      <div class="bgimg-1 w3-display-container w3-opacity-min" id="top">
+         <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xxlarge w3-wide w3-animate-opacity">ETHAN MOTION</span>
+         </div>
+      </div>
+      <!-- Container (About Section) -->
+      <div class="w3-content w3-container w3-padding-64" id="about">
+         <h3 class="w3-center">ABOUT ME</h3>
+         <p>Hey there!</p>
+         <p>I'm a Site Reliability Engineer (SRE) working for <a href="https://www.xero.com" target="_blank">Xero</a>
+            in Melbourne, Australia. <br>
+            I specialise in observability, focusing on providing valuable, cost-effective monitoring solutions to teams at Xero to help them to monitor their applications and infrastructure.
+            I approach problems with a Product Management mindset, and use my previous experience in providing technical Customer Experience support to effectively manage stakeholder expectations.
+         </p>
+         <div class="w3-row">
+            <div class="w3-col m6 w3-center w3-padding-large">
+               <img src="assets/img/share-img.jpg" class="w3-round w3-image" alt="Photo of Me" width="500" height="333">
+            </div>
+            <!-- Hide this text on small devices -->
+            <div class="w3-col m6 w3-hide-small w3-padding-large">
+               <p>This is my personal website hosted by Amazon S3. I chose S3 because my website is static; no
+                  server-side processing is required. By using S3, scaling is taken care of and it costs me almost nothing to host.
+                  You can check out this website's source and deployment code in my GitHub linked below.
+               </p>
+            </div>
+         </div>
+      </div>
+      <!-- Second Parallax Image with Work Text -->
+      <div class="bgimg-2 w3-display-container w3-opacity-min"></div>
+      <!-- Container (Work Section) -->
+      <div class="w3-content w3-container w3-padding-32" id="work">
+         <h3 class="w3-center">WORK</h3>
+         <div class="w3-row">
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">Xero</p>
+            </div>
+            <div class="w3-col w3-container" style="width:60%">
+               <p class="thicker">Site Reliability Engineer</p>
+               <p>Own and scale Xero services, building monitoring and alerting to improve reliability, scalability, and efficiency of systems.
+                  On-call for major outages and manage incidents according to best practices.
+               </p>
+            </div>
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">September 2017 - <br>Now</p>
+            </div>
+         </div>
+         <div class="w3-row">
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">Xero</p>
+            </div>
+            <div class="w3-col w3-container" style="width:60%">
+               <p class="thicker">Customer Experience Technical Specialist</p>
+               <p>Provided technical support to Xero customers, raising and prioritising bugs and responding to security incidents.
+                  This role also involved Technical Business Improvements to help our CX team scale effectively with the growth of the company.
+               </p>
+            </div>
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">April 2015 - <br>September 2017</p>
+            </div>
+         </div>
+      </div>
+      <!-- Container (Education Section) -->
+      <div class="w3-content w3-container w3-padding-32" id="education">
+         <h3 class="w3-center">EDUCATION</h3>
+         <div class="w3-row">
+            <div class="w3-col w3-container" style="width:25%">
+               <p class="thicker">Amazon Web Services</p>
+            </div>
+            <div class="w3-col w3-container" style="width:55%">
+               <p>AWS Certified Cloud Practitioner</p>
+            </div>
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">2018</p>
+            </div>
+         </div>
+         <div class="w3-row">
+            <div class="w3-col w3-container" style="width:25%">
+               <p class="thicker">Computer Power Plus</p>
+            </div>
+            <div class="w3-col w3-container" style="width:55%">
+               <p>Diploma in Software Development</p>
+            </div>
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">2015</p>
+            </div>
+         </div>
+         <div class="w3-row">
+            <div class="w3-col w3-container" style="width:25%">
+               <p class="thicker">NZ Institute of Management</p>
+            </div>
+            <div class="w3-col w3-container" style="width:55%">
+               <p>Certificate in Business Management</p>
+            </div>
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">2011</p>
+            </div>
+         </div>
+         <div class="w3-row">
+            <div class="w3-col w3-container" style="width:25%">
+               <p class="thicker">Project Management Institute</p>
+            </div>
+            <div class="w3-col w3-container" style="width:55%">
+               <p>Certified Associate of Project Management</p>
+            </div>
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">2011</p>
+            </div>
+         </div>
+      </div>
+      <!-- Container (Blogs Section) -->
+      <div class="w3-content w3-container w3-padding-32" id="blogs">
+         <h3 class="w3-center">BLOGS</h3>
+         <div class="w3-row">
+            <div class="w3-col w3-container" style="width:25%">
+               <p class="thicker">Xero Developer (Medium)</p>
+            </div>
+            <div class="w3-col w3-container" style="width:55%">
+               <a href="https://devblog.xero.com/scaling-log-management-with-xeros-rapid-business-growth-287394a35e6b" target="_blank">
+                  <p>Scaling Log Management with Xero’s Rapid Business Growth</p>
+               </a>
+            </div>
+            <div class="w3-col w3-container" style="width:20%">
+               <p class="thicker">2020</p>
+            </div>
+         </div>
+      </div>
+      <!-- Footer -->
+      <footer class="w3-center w3-dark-grey w3-padding-32">
+         <div class="w3-xlarge w3-section">
+            <a href="https://www.facebook.com/ethan.motion" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity ico-margin-5" title="Facebook" alt="Facebook"></i></a>
+            <a href="https://www.linkedin.com/in/ethan-motion/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity ico-margin-5" title="LinkedIn" alt="LinkedIn"></i></a>
+            <a href="https://github.com/ethan-motion" target="_blank"><i class="fa fa-github w3-hover-opacity ico-margin-5" title="GitHub" alt="GitHub"></i></a>
+         </div>
+         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+      </footer>
+      <script>
+         // Change style of navbar on scroll
+         window.onscroll = function() {myFunction()};
+         function myFunction() {
+             var navbar = document.getElementById("myNavbar");
+             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                 navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+             } else {
+                 navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+             }
+         }
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-	  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link href="assets/css/lato.css" rel="stylesheet">
-    <link href="assets/css/raleway.css" rel="stylesheet">
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
-    <script src="assets/js/Chart.js"></script>
-  </head>
-
-  <body data-spy="scroll" data-offset="0" data-target="#nav">
-
-	<div id="headerwrap">
-		<div class="container">
-			<div class="row left">
-				<div class="col-lg-12">
-					<h1>Ethan Motion</h1>
-          <a href="https://www.certmetrics.com/amazon/public/badge.aspx?i=9&t=c&d=2018-06-21&ci=AWS00525576"
-            target="_blank"><img src="assets/img/icons/aws_cert_cloud_practitioner.png" style="width:100px;height:100px;"
-            title="AWS Certified" alt="aws_cert_cloud_practitioner"></a>
-          <a href="https://www.youracclaim.com/badges/65da496a-4037-43e4-90a1-914c8495784b/public_url"
-            target="_blank"><img src="assets/img/icons/pcep.png" style="width:100px;height:100px;"
-            title="PCEP-30-01" alt="PCEP-30-01"></a>
-				</div><!--/.col-lg-12 -->
-			</div><!--/.row -->
-		</div><!--/.container -->
-	</div><!--/.#headerwrap -->
-
-	<section id="about" name="about"></section>
-	<div id="intro">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-2 col-lg-offset-1">
-					<h5>ABOUT</h5>
-				</div>
-				<div class="col-lg-8">
-					<p>Hi! I'm a Site Reliability Engineer (SRE) working for <a href="https://www.xero.com" target="_blank">Xero</a>
-            in Melbourne, Australia, with experience in providing CX technical support, and business improvement support.</p>
-          <p>This is my personal website served by Amazon S3. I chose S3 because my website is static; no
-            server-side processing is required. By using S3, scaling is taken care of, and it costs me almost nothing to host.
-            You can check out this website's source and deployment code in my GitHub linked below.</p>
-          </div>
-				</div>
-			</div><!--/.row -->
-		</div><!--/.container -->
-	</div><!--/ #intro -->
-
-  <!--BLOGS DESCRIPTION -->
-  <div class="container desc">
-    <div class="row">
-        <div class="col-lg-2 col-lg-offset-1">
-          <h5>BLOGS</h5>
-        </div>
-        <div class="col-lg-6">
-          <p><t>Scaling Log Management with Xero’s Rapid Business Growth</t>
-            <a href="https://devblog.xero.com/scaling-log-management-with-xeros-rapid-business-growth-287394a35e6b" target="_blank"><img src="assets/img/icons/external_link.png" style="padding-left: 5px" title="Medium" alt="Medium"></a><br/>
-            XERO DEVELOPER (MEDIUM) <br/></p>
-        </div>
-        <div class="col-lg-3">
-          <p><sm>2020</sm></p>
-        </div>
-    </div><!--/.row -->
-    <br>
-    <hr>
-  </div><!--/.container -->
-
-	<!--EDUCATION DESCRIPTION -->
-	<div class="container desc">
-		<div class="row">
-        <div class="col-lg-2 col-lg-offset-1">
-          <h5>EDUCATION</h5>
-        </div>
-
-        <div class="col-lg-6">
-          <p><t>AWS Certified Solutions Architect - Associate</t><br/>
-            AMAZON WEB SERVICES <br/></p>
-            <!-- TESTING -->
-        </div>
-        <div class="col-lg-3">
-          <p><sm>COMING SOON!</sm></p>
-        </div>
-
-        <div class="col-lg-6 col-lg-offset-3">
-					<p><t>AWS Certified Cloud Practitioner</t><br/>
-						AMAZON WEB SERVICES <br/></p>
-				</div>
-				<div class="col-lg-3">
-					<p><sm>2018</sm>
-				</div>
-
-				<div class="col-lg-6 col-lg-offset-3">
-					<p><t>Diploma in Software Development</t><br/>
-						COMPUTER POWER PLUS <br/></p>
-				</div>
-				<div class="col-lg-3">
-					<p><sm>2015</sm></p>
-				</div>
-
-        <div class="col-lg-6 col-lg-offset-3">
-          <p><t>Certificate in Business Management</t><br/>
-            NZ INSTITUTE OF MANAGEMENT <br/></p>
-        </div>
-        <div class="col-lg-3">
-          <p><sm>2011</sm></p>
-        </div>
-
-        <div class="col-lg-6 col-lg-offset-3">
-          <p><t>Certified Associate of Project Management</t><br/>
-            PROJECT MANAGEMENT INSTITUTE <br/></p>
-        </div>
-        <div class="col-lg-3">
-          <p><sm>2011</sm></p>
-        </div>
-
-		</div><!--/.row -->
-		<br>
-		<hr>
-	</div><!--/.container -->
-
-
-	<!--WORK DESCRIPTION -->
-	<div class="container desc">
-		<div class="row">
-				<div class="col-lg-2 col-lg-offset-1">
-					<h5>WORK</h5>
-				</div>
-				<div class="col-lg-6">
-					<p><t>Site Reliability Engineer</t><br/>
-						Xero <br/>
-					</p>
-					<p><more>Own and scale Xero services, building monitoring and alerting to improve reliability, scalability, and efficiency of systems.
-                    On-call for major outages and manage incidents according to best practices.</more></p>
-				</div>
-				<div class="col-lg-3">
-					<p><sm>SEPTEMBER 2017 - CURRENT</sm></p>
-				</div>
-
-				<div class="col-lg-6 col-lg-offset-3">
-					<p><t>Customer Experience Technical Specialist</t><br/>
-						Xero <br/>
-					</p>
-					<p><more>Provided technical support to Xero customers, raising and prioritising bugs and responding to security incidents.
-                    This role also involved Technical Business Improvements to help our CX team scale effectively with the growth of the company.</more></p>
-				</div>
-				<div class="col-lg-3">
-					<p><sm>APRIL 2015 - SEPTEMBER 2017</sm></p>
-				</div>
-		</div><!--/.row -->
-    <br>
-	</div><!--/.container -->
-
-
-	<section id="contact" name="contact"></section>
-	<!--FOOTER DESCRIPTION -->
-	<div id="footwrap">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-lg-2 col-lg-offset-1">
-					<h5>CONTACT</h5>
-				</div>
-				<div class="col-lg-6">
-					<p><t>Email</t><br/>
-            <a style="color:white" href="mailto:ethan.motion@gmail.com">ethan.motion@gmail.com</a><br/>
-					</p>
-					<p><t>Phone</t><br/>
-						 +64 27 376 9228<br/>
-					</p>
-				</div>
-				<div class="col-lg-3">
-					<p><sm>SOCIAL</sm></p>
-					<p>
-            <!-- https://iconmonstr.com/ -->
-            <a href="https://www.facebook.com/ethan.motion" target="_blank"><img src="assets/img/icons/icon_facebook.png" title="Facebook" alt="Facebook"></a>
-            <a href="https://www.linkedin.com/in/ethan-motion/" target="_blank"><img src="assets/img/icons/icon_linkedin.png" title="LinkedIn" alt="LinkedIn"></a>
-            <a href="https://github.com/ethan-motion" target="_blank"><img src="assets/img/icons/icon_github.png" title="GitHub" alt="GitHub"></a>
-					</p>
-				</div>
-			</div><!--/.row -->
-		</div><!--/.container -->
-	</div><!--/ #footer -->
-    <script src="assets/js/bootstrap.js"></script>
-  </body>
+         // Used to toggle the menu on small screens when clicking on the menu button
+         function toggleFunction() {
+             var x = document.getElementById("navDemo");
+             if (x.className.indexOf("w3-show") == -1) {
+                 x.className += " w3-show";
+             } else {
+                 x.className = x.className.replace(" w3-show", "");
+             }
+         }
+      </script>
+   </body>
 </html>
