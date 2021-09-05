@@ -1,6 +1,6 @@
 resource "aws_cloudfront_distribution" "E2N0SDO3M868R" {
   aliases = ["dev.ethanmotion.com"]
-  comment = "Test"
+  comment = "dev.ethanmotion.com"
   default_cache_behavior {
     allowed_methods           = ["GET", "HEAD"]
     cache_policy_id           = ""
