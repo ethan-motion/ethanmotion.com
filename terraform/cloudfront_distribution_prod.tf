@@ -4,7 +4,7 @@ resource "aws_cloudfront_distribution" "EM30Y9BEWP31R" {
   default_cache_behavior {
     allowed_methods = ["GET", "HEAD"]
     cached_methods  = ["GET", "HEAD"]
-    compress        = false
+    compress        = true
     default_ttl     = 0
     forwarded_values {
       cookies {
@@ -52,4 +52,14 @@ resource "aws_cloudfront_distribution" "EM30Y9BEWP31R" {
   }
   wait_for_deployment = true
   web_acl_id          = ""
+  custom_error_response {
+    error_code         = 404
+    response_code      = 404
+    response_page_path = "/error.html"
+  }
+  custom_error_response {
+    error_code         = 403
+    response_code      = 404
+    response_page_path = "/error.html"
+  }
 }

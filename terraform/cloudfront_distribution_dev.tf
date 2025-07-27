@@ -5,7 +5,7 @@ resource "aws_cloudfront_distribution" "E2N0SDO3M868R" {
     allowed_methods           = ["GET", "HEAD"]
     cache_policy_id           = ""
     cached_methods            = ["GET", "HEAD"]
-    compress                  = false
+    compress                  = true
     default_ttl               = 0
     field_level_encryption_id = ""
     forwarded_values {
@@ -63,4 +63,14 @@ resource "aws_cloudfront_distribution" "E2N0SDO3M868R" {
   }
   wait_for_deployment = true
   web_acl_id          = ""
+  custom_error_response {
+    error_code         = 404
+    response_code      = 404
+    response_page_path = "/error.html"
+  }
+  custom_error_response {
+    error_code         = 403
+    response_code      = 404
+    response_page_path = "/error.html"
+  }
 }
